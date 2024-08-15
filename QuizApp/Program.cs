@@ -1,5 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using QuizApp.Data;
+using QuizApp.interfaces;
+using QuizApp.Repositories;
 using System;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -14,6 +16,8 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<QuizAppDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")
     ));
+
+builder.Services.AddScoped<IQuizRepository, QuizRepository>();
 
 var app = builder.Build();
 
