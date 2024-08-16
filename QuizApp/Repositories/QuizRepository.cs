@@ -37,9 +37,14 @@ namespace QuizApp.Repositories
             return quiz;
         }
 
+        public async Task<bool> Exist(Guid id)
+        {
+            return await _context.Quizzes.AnyAsync(q => q.Id == id);
+        }
+
         public async Task<List<Quiz>> GetAllAsync()
         {
-            return await _context.Quizzes.ToListAsync();
+            return await _context.Quizzes.Include(q => q.Questions).ToListAsync();
         }
 
         public Task<Quiz?> GetByIdAsync(Guid id)

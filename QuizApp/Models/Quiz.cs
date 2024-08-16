@@ -7,7 +7,7 @@
         public string Description { get; set; }
         public required int Duration { get; set; }
 
-        public List<Question>? Questions { get; set; } = new List<Question>();
+        public List<Question>? Questions { get; set; }
 
     }
 }

@@ -11,5 +11,6 @@ namespace QuizApp.interfaces
         Task<Quiz> CreateAsync(Quiz quiz);
         Task<Quiz?> UpdateAsync(Guid id, QuizRequestDto quizDto);
         Task<Quiz?> DeleteAsync(Guid id);
+        Task<bool> Exist(Guid id);
     }
 }

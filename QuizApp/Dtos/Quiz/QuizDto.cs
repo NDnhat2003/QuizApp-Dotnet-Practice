@@ -1,4 +1,6 @@
-﻿namespace QuizApp.Dtos.Quiz
+﻿using QuizApp.Dtos.Question;
+
+namespace QuizApp.Dtos.Quiz
 {
     public class QuizDto
     {
@@ -6,5 +8,6 @@
         public string Title { get; set; }
         public string Description { get; set; }
         public int Duration { get; set; }
+        public List<QuestionDto>? Questions { get; set; }
     }
 }

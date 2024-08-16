@@ -5,16 +5,14 @@ namespace QuizApp.Mappers
 {
     public static class QuizMapper
     {
-        public static QuizDto ToQuizDto(this Quiz quiz)
+        public static QuizDto ToQuizDto(this Quiz quiz) => new QuizDto
         {
-            return new QuizDto
-            {
-                Id = quiz.Id,
-                Title = quiz.Title,
-                Duration = quiz.Duration,
-                Description = quiz.Description
-            };
-        }
+            Id = quiz.Id,
+            Title = quiz.Title,
+            Duration = quiz.Duration,
+            Description = quiz.Description,
+            Questions = quiz.Questions.Select(q => q.ToQuestionDto()).ToList(),
+        };
         public static Quiz ToQuizFromDTO(this QuizRequestDto quizDto) 
         {
             return new Quiz
